@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <style>
+            .letter {
+                margin: 0 auto;
+                width: 400px;
+                border: black 1px solid;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='letterDiv'></div>
+    </body>
+    <script>
+        var bankName = 'CashMoney Bank'
+        let letterText = ''
+
+        const customers = [ 
+            { fname: 'Brianna', balance: -54.99, rate: 2.7 },
+            { fname: 'Dillon', balance: 1014.94, rate: 5.1 },
+            { fname: 'Dmitri', balance: 0, rate: 7.2 },
+            { fname: 'Hazel', balance: 0, rate: 7.2 },
+            { fname: 'Isaiah', balance: 224.99, rate: 5.1 },
+            { fname: 'Laura', balance: -213.40, rate: 2.5 },
+            { fname: 'Matias', balance: -12.06, rate: 3.1 },
+            { fname: 'Monique', balance: 2220.54, rate: 7.2 },
+            { fname: 'Petra', balance: 500.35, rate: 4.9 },
+            { fname: 'Reggie', balance: 0, rate: 7.2 }
+        ]
+        //grab elements
+         let letterContainer = document.querySelector('#letterDiv');
+        
+        //0 balance
+        
+        customers.forEach(function(item){
+            //create new div element
+            let displayDiv = document.createElement('div');
+            letterContainer.append(displayDiv);
+            displayDiv.classList.add('letter')
+
+            if(item.balance < 0) {
+                // console.log(`Hello ${item.fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of $${item.balance}`) 
+                displayDiv.textContent = `Hello ${item.fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of $${item.balance}`
+            }
+            else if (item.balance > 0) {
+                // console.log(`Hello ${item.fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`)
+                displayDiv.textContent = `Hello ${item.fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`;
+            }
+            else if (item.balance === 0) {
+                // console.log('Hello [fname], greetings from [bankName]. Because you are such a great customer, we\'re lowering your interest rate to $[rate]%.')
+                displayDiv.textContent = `'Hello ${item.fname}, greetings from ${bankName}. Because you are such a great customer, we\'re lowering your interest rate to ${item.rate}%.`
+            }
+        });
+
+    
+
+       
+
+        
+
+        // Create a loop that iterates through the customers array. Based on the customer's balance, create a personalized copy 
+        // of the appropriate letter text from below. Each letter should be contained within a div with the style of 'letter'.
+
+        // Hello [fname], this is an attempt to collect a debt owed to [bankName]. Your account is past due by the amount of [balance].
+        // Hello [fname], greetings from [bankName]. Your balance is current. No need for action until next month. 
+        // Hello [fname], greetings from [bankName]. Because you are such a great customer, we're lowering your interest rate to $[rate]%. 
+
+        // Display all these letters in the letterDiv element.
+
+    </script>
+</html>
