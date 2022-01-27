@@ -42,16 +42,14 @@
             displayDiv.classList.add('letter')
 
             if(item.balance < 0) {
-                // console.log(`Hello ${item.fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of $${item.balance}`) 
-                displayDiv.textContent = `Hello ${item.fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of $${item.balance}`
+                displayDiv.textContent = `'Hello ${item.fname}, greetings from ${bankName}. Because you are such a great customer, we\'re lowering your interest rate to ${item.rate}%.`
             }
             else if (item.balance > 0) {
-                // console.log(`Hello ${item.fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`)
-                displayDiv.textContent = `Hello ${item.fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`;
+                displayDiv.textContent =  `Hello ${item.fname}, this is an attempt to collect a debt owed to ${bankName}. Your account is past due by the amount of $${item.balance}`
             }
             else if (item.balance === 0) {
                 // console.log('Hello [fname], greetings from [bankName]. Because you are such a great customer, we\'re lowering your interest rate to $[rate]%.')
-                displayDiv.textContent = `'Hello ${item.fname}, greetings from ${bankName}. Because you are such a great customer, we\'re lowering your interest rate to ${item.rate}%.`
+                displayDiv.textContent = `Hello ${item.fname}, greetings from ${bankName}. Your balance is current. No need for action until next month.`;
             }
         });
 
